@@ -75,6 +75,14 @@ class BarcodeMask extends React.Component {
       this.animation.stop();
     }
   }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.showAnimatedLine!==this.props.showAnimatedLine){
+      if (this.props.showAnimatedLine == true){
+        this._startLineAnimation();
+      }
+    }
+  }
 
   _startLineAnimation = () => {
     const intervalId = setInterval(() => {
